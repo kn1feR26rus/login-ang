@@ -26,6 +26,7 @@ input {
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
+  text-align: center;
 }
 
 button {
@@ -43,7 +44,12 @@ button {
   border: none;
   border-radius: 3px;
   background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
-  box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0,0,0,.3) 0 2px 5px;
   -webkit-animation: pulsate 1.2s linear infinite;
   animation: pulsate 1.2s linear infinite;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: grey;
+  box-shadow: black;
 }

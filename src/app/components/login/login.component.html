@@ -1,10 +1,35 @@
 <div>
-  <form>
+  <form
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()">
     <h1 class="title">Вход</h1>
-    <label for="" class="email">Введите e-mail</label>
-    <input type="text" class="inp-email">
-    <label for="" class="password">Введите пароль</label>
-    <input type="text" class="inp-password">
-    <button class="submit">Войти</button>
+    <label for="email" class="email">Введите e-mail</label>
+    <input type="email"
+          formControlName="email"
+          [ngClass]="{invalid: form.get('email').invalid && form.get('email').touched}"
+          id="email"
+          class="inp-email"
+          placeholder = "example@email.com">
+    <span class="error-text"
+          *ngIf="form.get('email').invalid && form.get('email').touched">
+        <span *ngIf="form.get('email').errors['required']">Email не должен быть пустым</span>
+        <span *ngIf="form.get('email').errors['email']">Введите корректный email</span>
+    </span>
+    <label for="password" class="password">Введите пароль</label>
+    <input type="password"
+          formControlName="password"
+          [ngClass]="{invalid: form.get('password').invalid && form.get('password').touched}"
+          id="password"
+          class="inp-password"
+          placeholder = "Enter password">
+          <span class="error-text"
+          *ngIf="form.get('password').invalid && form.get('password').touched">
+        <span *ngIf="form.get('password').errors['required']">Пароль не должен быть пустым</span>
+        <span *ngIf="form.get('password').errors['minlength'] && form.get('password').errors['minlength']['requiredLength']">
+          Пароль должен быть больше {{ form.get('password').errors['minlength']['requiredLength'] }} символов</span>
+    </span>
+    <button type="submit"
+            [disabled]="form.invalid"
+            class="submit">Войти</button>
   </form>
 </div>
