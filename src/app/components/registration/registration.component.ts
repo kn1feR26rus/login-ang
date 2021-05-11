@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationComponent implements OnInit {
 
-  constructor() { }
+  value1: string;
+  value2: any;
+
+  constructor() {}
 
   ngOnInit(): void {
   }
 
+  register() {
+    localStorage.setItem('email', this.value1)
+    localStorage.setItem('password', this.value2)
+  }
+
 }
+

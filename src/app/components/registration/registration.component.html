@@ -2,9 +2,18 @@
   <form>
     <h1 class="title">Регистрация</h1>
     <label for="email" class="email">Введите e-mail</label>
-    <input type="email" id="email" class="inp-email" required placeholder = "example@email.com">
+    <input type="email"
+            [(ngModel)] = "value1"
+            name="value1"
+            id="email"
+            class="inp-email"
+            required placeholder = "example@email.com">
     <label for="password" class="password">Введите пароль</label>
-    <input type="password" id="password" class="inp-password" required placeholder = "Enter password">
-    <button type="submit" class="submit">Подтвердить</button>
+    <input type="text"
+            [(ngModel)] = "value2"
+            name="value2"
+            class="inp-password"
+            required placeholder = "Enter password">
+    <button type="submit" class="submit" (click)="register()">Подтвердить</button>
   </form>
 </div>
